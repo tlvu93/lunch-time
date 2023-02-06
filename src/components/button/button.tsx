@@ -1,17 +1,14 @@
-import React from "react";
-
-type Props = {
-  text?: string;
+interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   className?: string;
-};
+}
 
-const Button = ({ text = "default", className }: Props) => {
+const Button = (props: ButtonProps) => {
+  const { className, ...rest } = props;
   return (
     <button
       className={`w-full py-2 px-4 bg-slate-700 text-white rounded-md font-semibold ${className}`}
-    >
-      {text}
-    </button>
+      {...rest}
+    />
   );
 };
 
