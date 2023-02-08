@@ -8,10 +8,12 @@ import { AuthProvider } from "./context/auth-context";
 import LandingPage from "./pages/landing-page";
 import AppLayout from "./layout/app-layout";
 import ErrorPage from "./pages/error-page";
+import OrderPage from "./pages/order-page";
 
 const router = createBrowserRouter([
   { path: "/", element: <LandingPage />, errorElement: <ErrorPage /> },
   { path: "/login", element: <LoginPage /> },
+  { path: "/order", element: <OrderPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

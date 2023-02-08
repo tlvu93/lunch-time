@@ -7,7 +7,7 @@ type Props = {
 
 const FormInput = (props: Props) => {
   return (
-    <div className="flex flex-col gap-2 py-2">
+    <div className="flex flex-col gap-2 py-2 w-full max-w-3xl">
       {props.label && <p className="text-xl font-bold">{props.label}</p>}
       <div className="flex relative">
         <input
