@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 
 interface AuthContext {
   isAuthenticated: boolean;
-  login: () => void;
+  login: (email: string, password: string) => void;
   logout: () => void;
 }
 
@@ -11,8 +11,8 @@ const AuthContext = createContext<AuthContext>({} as AuthContext);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const login = () => {
-    console.log("Logging in...");
+  const login = (email: string, password: string) => {
+    // TODO: Implement Authentication Logic
     setIsAuthenticated(true);
   };
 

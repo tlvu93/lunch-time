@@ -7,9 +7,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "../components/button/button";
 import { useAuth } from "../context/auth-context";
+import { useNavigate, Navigate } from "react-router-dom";
+import React, { ReactEventHandler, useState } from "react";
+import LoginForm from "../components/login-form/login-form";
 
 const LoginPage = () => {
-  const { isAuthenticated, login, logout } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <div className="h-full flex flex-col justify-between">
@@ -19,34 +22,18 @@ const LoginPage = () => {
           Lunchtime!
         </p>
         <div>
-          <FormInput
-            label="Email"
-            icon={<FontAwesomeIcon icon={faEnvelope} />}
-          />
-          <FormInput
-            label="Password"
-            icon={<FontAwesomeIcon icon={faLock} />}
-          />
-          <div className="flex justify-end">
-            <a className="underline text-sm" href="">
-              FORGOT PASSWORD?
-            </a>
-          </div>
-          <div className="flex justify-between py-8">
-            <a className="flex-1" href="">
-              Signup
-            </a>
-            <Button onClick={login} className="flex-1">
-              Login
-            </Button>
-          </div>
+          <LoginForm />
         </div>
       </div>
 
       <div className="mb-8">
-        <FormInput label="Name" icon={<FontAwesomeIcon icon={faPerson} />} />
+        <FormInput
+          name="name"
+          label="Name"
+          icon={<FontAwesomeIcon icon={faPerson} />}
+        />
         <div className="flex justify-end">
-          <a href="">Continue without login</a>
+          <div onClick={() => navigate("/")}>Continue without login</div>
         </div>
       </div>
     </div>
